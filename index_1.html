@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryan Gator Stephens | Operations & AI Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #1A3A5C;
+      --navy-dark: #0F2440;
+      --orange:    #E8631A;
+      --orange-lt: #F47A36;
+      --white:     #FFFFFF;
+      --off-white: #F7F8FA;
+      --gray-lt:   #EEF0F3;
+      --gray:      #6C757D;
+      --text:      #1A1A2E;
+      --radius:    8px;
+      --shadow:    0 2px 20px rgba(26,58,92,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Nav ───────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-lt);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1rem;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      background: var(--orange); color: var(--white) !important;
+      padding: 0.5rem 1.25rem; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.875rem;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--orange-lt) !important; color: var(--white) !important; }
+
+    /* ── Sections ──────────────────────────────────────────────────── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 2rem; font-weight: 800;
+      color: var(--navy); line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--gray);
+      max-width: 600px; margin-bottom: 3rem;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy-dark);
+      display: flex; align-items: center;
+      padding-top: 64px;
+    }
+    .hero-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 4rem; align-items: center;
+      width: 100%; padding: 0 2rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-name em { color: var(--orange); font-style: normal; }
+    .hero-title {
+      font-size: 1.1rem; color: rgba(255,255,255,0.65);
+      margin-bottom: 2rem; font-weight: 400;
+    }
+    .hero-desc {
+      font-size: 1rem; color: rgba(255,255,255,0.55);
+      max-width: 520px; margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange); color: var(--white);
+      padding: 0.75rem 1.75rem; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange-lt); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85);
+      padding: 0.75rem 1.75rem; border-radius: var(--radius);
+      font-weight: 500; font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.6); color: var(--white);
+      transform: translateY(-1px);
+    }
+    /* Headshot */
+    .hero-photo {
+      width: 220px; height: 220px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 3px solid var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-placeholder {
+      font-size: 5rem; color: rgba(255,255,255,0.2);
+      user-select: none;
+    }
+
+    /* ── Stats bar ─────────────────────────────────────────────────── */
+    #stats {
+      background: var(--navy);
+      padding: 3rem 2rem;
+    }
+    .stats-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
+    }
+    .stat-number {
+      font-size: 2.25rem; font-weight: 800; color: var(--orange);
+      line-height: 1; margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    /* ── About ─────────────────────────────────────────────────────── */
+    #about { background: var(--off-white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .about-text p {
+      color: var(--gray); font-size: 0.975rem;
+      margin-bottom: 1rem; line-height: 1.8;
+    }
+    .about-text p strong { color: var(--navy); }
+    .about-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem;
+    }
+    .tag {
+      background: var(--navy); color: var(--white);
+      padding: 0.35rem 0.85rem; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 500;
+    }
+    .tag.orange { background: var(--orange); }
+    .about-highlights { display: flex; flex-direction: column; gap: 1.25rem; }
+    .highlight-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--orange);
+      box-shadow: var(--shadow);
+    }
+    .highlight-card h4 {
+      font-size: 0.875rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .highlight-card p { font-size: 0.825rem; color: var(--gray); line-height: 1.5; }
+
+    /* ── Experience ────────────────────────────────────────────────── */
+    #experience { background: var(--white); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 12px; top: 0; bottom: 0;
+      width: 2px; background: var(--gray-lt);
+    }
+    .tl-item {
+      position: relative; padding-left: 3rem; margin-bottom: 3rem;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: 0; top: 4px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--navy); border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--navy);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tl-dot.orange {
+      background: var(--orange);
+      box-shadow: 0 0 0 2px var(--orange);
+    }
+    .tl-dot svg { width: 12px; height: 12px; fill: var(--white); }
+    .tl-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .tl-role { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .tl-date { font-size: 0.8rem; color: var(--orange); font-weight: 600; }
+    .tl-company { font-size: 0.875rem; color: var(--gray); margin-bottom: 1rem; }
+    .tl-bullets { list-style: none; }
+    .tl-bullets li {
+      font-size: 0.9rem; color: var(--gray);
+      padding: 0.3rem 0 0.3rem 1rem;
+      position: relative; line-height: 1.6;
+    }
+    .tl-bullets li::before {
+      content: '';
+      position: absolute; left: 0; top: 0.72rem;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--orange);
+    }
+    .tl-sub {
+      margin-top: 1rem; padding: 1rem 1.25rem;
+      background: var(--off-white); border-radius: var(--radius);
+    }
+    .tl-sub-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+    .tl-sub .tl-bullets li { font-size: 0.85rem; }
+
+    /* ── AI Projects ───────────────────────────────────────────────── */
+    #ai { background: var(--off-white); }
+    .ai-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .ai-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 1.75rem; box-shadow: var(--shadow);
+      border-top: 4px solid var(--navy);
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ai-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(26,58,92,0.14); }
+    .ai-card.featured { border-top-color: var(--orange); }
+    .ai-icon {
+      width: 44px; height: 44px; border-radius: var(--radius);
+      background: var(--navy); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+    .ai-card.featured .ai-icon { background: var(--orange); }
+    .ai-card h3 {
+      font-size: 1rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .ai-card p {
+      font-size: 0.875rem; color: var(--gray);
+      line-height: 1.65; flex-grow: 1;
+    }
+    .ai-savings {
+      margin-top: 1.25rem; padding-top: 1rem;
+      border-top: 1px solid var(--gray-lt);
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--orange);
+    }
+    .ai-pill {
+      display: inline-block; margin-top: 0.5rem;
+      background: var(--off-white); color: var(--navy);
+      padding: 0.25rem 0.65rem; border-radius: 100px;
+      font-size: 0.72rem; font-weight: 600;
+    }
+
+    /* ── Skills ─────────────────────────────────────────────────────── */
+    #skills { background: var(--white); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .skill-group h4 {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--orange); margin-bottom: 1rem;
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 0.9rem; color: var(--gray);
+      padding: 0.4rem 0; border-bottom: 1px solid var(--gray-lt);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .skill-list li::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--navy); flex-shrink: 0;
+    }
+
+    /* ── Contact ─────────────────────────────────────────────────────── */
+    #contact {
+      background: var(--navy-dark);
+      text-align: center;
+    }
+    #contact .section-label { color: var(--orange); }
+    #contact .section-title { color: var(--white); }
+    #contact .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto 2.5rem; }
+    .contact-links {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.75rem 1.5rem; border-radius: var(--radius);
+      font-size: 0.9rem; font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      transition: all 0.2s;
+    }
+    .contact-link:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.35);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .contact-link.primary {
+      background: var(--orange); border-color: var(--orange); color: var(--white);
+    }
+    .contact-link.primary:hover { background: var(--orange-lt); border-color: var(--orange-lt); }
+    .contact-icon { font-size: 1rem; }
+
+    /* ── Footer ─────────────────────────────────────────────────────── */
+    footer {
+      background: #080E18; padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.78rem; color: rgba(255,255,255,0.25);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo { margin: 0 auto; }
+      .hero-btns { justify-content: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Bryan <span>Gator</span> Stephens</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#ai">AI Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">Operations Leader &amp; AI Workflow Specialist</p>
+        <h1 class="hero-name">Bryan <em>Gator</em><br>Stephens</h1>
+        <p class="hero-title">Contact Center Management &nbsp;·&nbsp; Prompt Engineering &nbsp;·&nbsp; Agentic AI Tools</p>
+        <p style="margin-bottom:1.5rem;"><span style="display:inline-block;background:rgba(232,99,26,0.15);color:var(--orange-lt);border:1px solid rgba(232,99,26,0.35);padding:0.3rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.04em;">Open to Ops &amp; AI Roles &nbsp;·&nbsp; Phoenix Valley or Remote</span></p>
+        <p class="hero-desc">
+          I don't just use AI — I build production tools with it. Self-taught prompt engineer
+          with 6+ years leading large-scale scheduling operations, deploying real AI automations
+          that save companies $50,000+ a year in labor costs.
+        </p>
+        <div class="hero-btns">
+          <a href="#ai" class="btn-primary">See My AI Projects</a>
+          <a href="#contact" class="btn-outline">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="headshot.png" alt="Bryan Gator Stephens" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-number">35</div>
+        <div class="stat-label">Team Members Managed</div>
+      </div>
+      <div>
+        <div class="stat-number">28,000+</div>
+        <div class="stat-label">Monthly Contacts at Peak</div>
+      </div>
+      <div>
+        <div class="stat-number">$55K+</div>
+        <div class="stat-label">Annual AI Labor Savings</div>
+      </div>
+      <div>
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Years in Operations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">02 &mdash; About</p>
+      <h2 class="section-title">Operations-first.<br>AI-driven.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a <strong>self-taught prompt engineer and operations leader</strong> with 6+ years
+            managing large-scale scheduling teams in the solar energy industry. I build AI tools
+            that actually work — not demos, not experiments, but systems in active use
+            at a company with hundreds of employees.
+          </p>
+          <p>
+            Grew within Freedom Forever from local scheduler to Centralized Scheduling Supervisor,
+            eventually running a department of up to 35 coordinators managing 28,000+ monthly customer
+            contacts and scheduling 200+ residential solar installations nationwide at peak — serving
+            as the operational lead for the scheduling department under the Director of Customer Operations.
+          </p>
+          <div class="about-tags">
+            <span class="tag orange">Claude (Anthropic)</span>
+            <span class="tag orange">ChatGPT</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Agentic Automation</span>
+            <span class="tag">Contact Center Ops</span>
+            <span class="tag">Servant Leadership</span>
+          </div>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <h4>Sky is the Limit Award — 2023</h4>
+            <p>Recognized by Freedom Forever for leadership and AI-driven innovation that elevated the entire scheduling department.</p>
+          </div>
+          <div class="highlight-card">
+            <h4>$55,000+ in Annualized Savings</h4>
+            <p>Built and deployed three AI automations that replaced manual workflows and generated measurable, ongoing cost savings.</p>
+          </div>
+          <div class="highlight-card">
+            <h4>Phoenix, AZ &nbsp;·&nbsp; Open to Remote</h4>
+            <p>Available for in-person roles in the Greater Phoenix Valley or remote positions nationwide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">03 &mdash; Experience</p>
+      <h2 class="section-title">Career History</h2>
+      <p class="section-sub">6+ years in operations leadership — most recently running a 35-person contact center scheduling team handling 28,000+ monthly contacts in the solar energy industry.</p>
+      <div class="timeline">
+
+        <!-- FF Supervisor -->
+        <div class="tl-item">
+          <div class="tl-dot orange">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div class="tl-header">
+            <span class="tl-role">Scheduling Supervisor</span>
+            <span class="tl-date">Jan 2021 – Present</span>
+          </div>
+          <div class="tl-company">Freedom Forever &nbsp;·&nbsp; Centralized Contact Center, Las Vegas, NV</div>
+          <ul class="tl-bullets">
+            <li>Managed a team of 16–35 scheduling coordinators handling 500–600 inbound and 500–600 outbound calls per day — 28,000+ monthly contacts at peak.</li>
+            <li>Maintained SLA compliance while coordinating 200+ residential solar installations per period from a centralized hub.</li>
+            <li>Designed and deployed three production AI automation tools that collectively save $55,000+ in annualized labor costs.</li>
+            <li>Served as primary operational voice in the development of Freedom Forever's proprietary auto-scheduling product.</li>
+            <li>Managed full talent lifecycle: recruiting, onboarding, performance management, and team development.</li>
+          </ul>
+          <div class="tl-sub">
+            <div class="tl-sub-label">AI &amp; Automation Highlights</div>
+            <ul class="tl-bullets">
+              <li>Partner Portal Automation: 75–100 partner updates/day automated; $50,000+/year in labor savings.</li>
+              <li>Calendar Cleanup Automation: Visit removals and customer email notifications fully automated.</li>
+              <li>Scheduling Dashboard: Executive-level source of truth for all scheduling KPIs and protocols.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FF Local Scheduler -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+          </div>
+          <div class="tl-header">
+            <span class="tl-role">Local Scheduler | Phoenix Branch</span>
+            <span class="tl-date">May 2020 – Jan 2021</span>
+          </div>
+          <div class="tl-company">Freedom Forever &nbsp;·&nbsp; Phoenix, AZ</div>
+          <ul class="tl-bullets">
+            <li>Sole scheduler for the Phoenix market — managed all local install and survey scheduling independently.</li>
+            <li>Demonstrated consistent performance that led to advancement into a newly created centralized Scheduling Supervisor role.</li>
+          </ul>
+        </div>
+
+        <!-- Men's Wearhouse -->
+        <div class="tl-item">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+          </div>
+          <div class="tl-header">
+            <span class="tl-role">Assistant Manager</span>
+            <span class="tl-date">March 2019 – March 2020</span>
+          </div>
+          <div class="tl-company">Men's Wearhouse &nbsp;·&nbsp; Retail Operations</div>
+          <ul class="tl-bullets">
+            <li>Supervised daily floor operations and a team of retail associates in a high-volume customer-facing environment.</li>
+            <li>Drove consistent achievement of sales targets through associate coaching, scheduling, and a customer-first culture.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AI PROJECTS -->
+  <section id="ai">
+    <div class="container">
+      <p class="section-label">04 &mdash; AI Projects</p>
+      <h2 class="section-title">Production AI Tools</h2>
+      <p class="section-sub">These aren't demos. Every tool below is in active use — built by me, deployed at scale, saving real money.</p>
+      <div class="ai-grid">
+
+        <div class="ai-card featured">
+          <div class="ai-icon">🔗</div>
+          <h3>Partner Portal Automation</h3>
+          <p>
+            An AI agent that monitors the scheduling calendar, detects visits requiring
+            third-party updates, navigates directly into partner portals (Sunrun, Goodleap),
+            and updates notes and fields autonomously. Handles 75–100 updates per day —
+            no human intervention required after the initial daily login.
+          </p>
+          <div class="ai-savings">$50,000+ / year in labor savings</div>
+          <span class="ai-pill">Claude (Cowork)</span>
+        </div>
+
+        <div class="ai-card">
+          <div class="ai-icon">🗓️</div>
+          <h3>Calendar Cleanup Automation</h3>
+          <p>
+            Scans the scheduling calendar for visits flagged for removal, deletes them
+            from the system, and automatically sends customer notification emails.
+            Fully replaced a manual, coordinator-driven cancellation process end to end.
+          </p>
+          <div class="ai-savings">$6,000+ / year in labor savings</div>
+          <span class="ai-pill">Claude (Cowork)</span>
+        </div>
+
+        <div class="ai-card">
+          <div class="ai-icon">📊</div>
+          <h3>Scheduling Team Dashboard</h3>
+          <p>
+            A centralized source of truth built to serve two audiences: executive
+            leadership tracking KPIs and scheduling metrics at a glance, and frontline
+            coordinators following plain-language protocols written for entry-level
+            comprehension. Adopted department-wide as the authoritative operational reference.
+          </p>
+          <div class="ai-savings">Executive-level visibility</div>
+          <span class="ai-pill">Claude (Anthropic)</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">05 &mdash; Skills</p>
+      <h2 class="section-title">Core Capabilities</h2>
+      <p class="section-sub">A blend of operational leadership, AI tooling, and contact center expertise built over 6+ years.</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>AI &amp; Automation</h4>
+          <ul class="skill-list">
+            <li>Claude (Anthropic) — Primary</li>
+            <li>ChatGPT (OpenAI)</li>
+            <li>Prompt Engineering</li>
+            <li>Agentic Workflow Design</li>
+            <li>Browser Automation</li>
+            <li>Portal Automation</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Operations &amp; Leadership</h4>
+          <ul class="skill-list">
+            <li>Contact Center Management</li>
+            <li>Team Leadership (16–35 people)</li>
+            <li>SLA Management</li>
+            <li>Scheduling &amp; Capacity Planning</li>
+            <li>Recruiting &amp; Onboarding</li>
+            <li>Process Improvement</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Tools &amp; Platforms</h4>
+          <ul class="skill-list">
+            <li>Atlassian Jira</li>
+            <li>Vonage / Dialpad / RingCentral</li>
+            <li>Microsoft Teams &amp; Outlook</li>
+            <li>Zendesk</li>
+            <li>Salesforce</li>
+            <li>Power BI</li>
+            <li>MySQL</li>
+            <li>Lightspeed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">06 &mdash; Contact</p>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-sub">Open to Operations, AI, and Contact Center leadership roles in the Phoenix valley or remote. Let's talk.</p>
+      <div class="contact-links">
+        <a href="mailto:bgstephens0@gmail.com" class="contact-link primary">
+          <span class="contact-icon">✉️</span> bgstephens0@gmail.com
+        </a>
+        <a href="tel:6063054393" class="contact-link">
+          <span class="contact-icon">📞</span> (606) 305-4393
+        </a>
+        <a href="https://www.linkedin.com/in/bryan-gator-stephens-901158305/" target="_blank" class="contact-link">
+          <span class="contact-icon">💼</span> LinkedIn
+        </a>
+        <!-- UPDATE href to your actual resume file once uploaded -->
+        <a href="Gator_Master_Resume.pdf" download class="contact-link">
+          <span class="contact-icon">📄</span> Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Bryan Gator Stephens &nbsp;·&nbsp; Built with GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
